@@ -11,20 +11,21 @@ import software.amazon.awssdk.services.ses.SesClient;
 @Configuration
 public class EmailConfig {
 
-    @Value("${aws.accessKeyId}")
+    @Value("${spring.mail.username}")
     private String accessKeyId;
 
-    @Value("${aws.secretAccessKey}")
+    @Value("${spring.mail.password}")
     private String secretAccessKey;
 
-    @Value("${aws.region}")
+    @Value("${aws.region:us-east-1}")
     private String region;
 
     @Bean
     public SesClient sesClient() {
         return SesClient.builder()
                 .region(Region.of(region))
-                .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKeyId, secretAccessKey)))
+                .credentialsProvider(StaticCredentialsProvider.create(
+                        AwsBasicCredentials.create(accessKeyId, secretAccessKey)))
                 .build();
     }
 }
