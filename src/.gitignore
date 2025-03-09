@@ -1,0 +1,36 @@
+# Ignore Maven target directory
+/target/
+
+# Ignore environment variables
+.env
+
+# Ignore gradle build files
+/gradle/
+/gradlew
+/gradlew.bat
+
+# Ignore IntelliJ IDEA files
+/.idea/
+
+# Ignore VSCode settings
+/.vscode/
+
+# Ignore temporary files and logs
+*.log
+*.tmp
+*.bak
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore environment variables and sensitive files
+/application.properties
+/application.yml
+/config/
+
+# Ignore test output or generated test files
+/test-output/
+
+# Ignore local build files
+/.mvn/
